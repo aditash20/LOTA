@@ -1,0 +1,216 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --white: #fff;
+  --black: #111;
+  --accent-color: #8257E5;
+  --color-magenta: #FF00FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--color-magenta);
+}
+
+img {
+  width: 100%;
+}
+
+/* HEADER */
+header {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1.title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+header h2.second-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+/* SECTION */
+section {
+  text-align: center;
+  padding: 2rem 3%;
+}
+
+section img:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+section img {
+  cursor: pointer;
+  transition: opacity 400ms;
+}
+
+section img:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--black);
+  color: var(--white);
+  height: 20vh;
+}
+
+footer p {
+  font-size: 1.5rem;
+}
+
+footer p a {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATIONS */
+header h1.title {
+  animation: rise 300ms backwards ease-out;
+}
+
+header h2.second-title {
+  animation: rise 400ms backwards ease-out;
+}
+
+section img {
+  animation: rise 400ms ease-out backwards;
+  animation-play-state: paused;
+  animation-delay: 300ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+
+/* MEDIA QUERIES */
+/* Tablets */
+@media screen and (min-width: 480px) {
+  section {
+    padding: 2rem 10% 10%;
+  }
+}
+
+/* Small Screens, laptops */
+@media screen and (min-width: 768px) {
+  /* HEADER */
+  header {
+    height: 30rem;
+  }
+
+  header h1.title {
+    font-size: 4.8rem;
+  }
+
+  header h2.second-title {
+    font-size: 3.4rem;
+    margin-top: 1rem;
+  }
+  
+  /*  SECTION */
+  section {
+    columns: 2;
+    column-gap: 1rem;
+    padding: 2rem 10% 10%;
+  }
+}
+
+/* Desktop, large screens */
+@media screen and (min-width: 1024px) {
+  /* HEADER */
+  header {
+    height: 50rem;
+  }
+
+  header h1.title {
+    font-size: 4.8rem;
+  }
+
+  header h2.second-title {
+    font-size: 3.4rem;
+    margin-top: 1rem;
+  }
+  
+  /*  SECTION */
+  section {
+    columns: 3;
+    column-gap: 1.5rem;
+    padding: 2rem 10% 10%;
+  }
+}
+</style>
+</head>
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto" />
+
+<header>
+  <h1 class="title" >The gallery of Love</h1>
+</header>
+
+<section>
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (1).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (10).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39.jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (11).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (12).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (2).jpeg" /> 
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (3).jpeg" /> 
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (4).jpeg" /> 
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (5).jpeg" /> 
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (6).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (7).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (8).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.39 (9).jpeg" />
+  <img src="images/WhatsApp Image 2023-06-27 at 03.22.40.jpeg" />
+</section>
+<script>
+const imgs = document.querySelectorAll("section img")
+
+scrolling()
+window.onscroll = scrolling
+
+function scrolling() {
+  const viewportHeight = window.innerHeight
+  imgs.forEach(img => {
+    if (img.getBoundingClientRect().top < viewportHeight) {
+      img.style.animationPlayState = "running"
+    }
+  })
+}
+</script>
+
+</body>
+</html>
